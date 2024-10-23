@@ -1,0 +1,55 @@
+Steps of branch with total cost 88:
+Step with cost 4:
+        Book with pwp 0 with enchantments Protection IV
+        +
+        Book with pwp 0 with enchantments FeatherFalling IV
+        =
+        Book with pwp 1 with enchantments Protection IV FeatherFalling IV
+Step with cost 6:
+        Boots with pwp 0 with enchantments
+        +
+        Book with pwp 0 with enchantments DepthStrider III
+        =
+        Boots with pwp 1 with enchantments DepthStrider III
+Step with cost 3:
+        Book with pwp 0 with enchantments Thorns III
+        +
+        Book with pwp 0 with enchantments Unbreaking III
+        =
+        Book with pwp 1 with enchantments Thorns III Unbreaking III
+Step with cost 17:
+        Boots with pwp 1 with enchantments DepthStrider III
+        +
+        Book with pwp 1 with enchantments Thorns III Unbreaking III
+        =
+        Boots with pwp 3 with enchantments DepthStrider III Thorns III Unbreaking III
+Step with cost 2:
+        Book with pwp 0 with enchantments CurseOfBinding I
+        +
+        Book with pwp 0 with enchantments Mending I
+        =
+        Book with pwp 1 with enchantments CurseOfBinding I Mending I
+Step with cost 4:
+        Book with pwp 0 with enchantments SoulSpeed III
+        +
+        Book with pwp 0 with enchantments CurseOfVanishing I
+        =
+        Book with pwp 1 with enchantments SoulSpeed III CurseOfVanishing I
+Step with cost 8:
+        Book with pwp 1 with enchantments SoulSpeed III CurseOfVanishing I
+        +
+        Book with pwp 1 with enchantments CurseOfBinding I Mending I
+        =
+        Book with pwp 3 with enchantments SoulSpeed III CurseOfVanishing I CurseOfBinding I Mending I
+Step with cost 28:
+        Boots with pwp 3 with enchantments DepthStrider III Thorns III Unbreaking III
+        +
+        Book with pwp 3 with enchantments SoulSpeed III CurseOfVanishing I CurseOfBinding I Mending I
+        =
+        Boots with pwp 7 with enchantments DepthStrider III Thorns III Unbreaking III SoulSpeed III CurseOfVanishing I CurseOfBinding I Mending I
+Step with cost 16:
+        Boots with pwp 7 with enchantments DepthStrider III Thorns III Unbreaking III SoulSpeed III CurseOfVanishing I CurseOfBinding I Mending I
+        +
+        Book with pwp 1 with enchantments Protection IV FeatherFalling IV
+        =
+        Boots with pwp 15 with enchantments DepthStrider III Thorns III Unbreaking III SoulSpeed III CurseOfVanishing I CurseOfBinding I Mending I Protection IV FeatherFalling IV

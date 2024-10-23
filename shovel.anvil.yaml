@@ -1,0 +1,25 @@
+items:
+  -
+    type: Book
+    enchantments:
+      -
+        type: Efficiency
+        level: 5
+  -
+    type: Book
+    enchantments:
+      -
+        type: Mending
+  -
+    type: Book
+    enchantments:
+      -
+        type: Unbreaking
+        level: 3
+  -
+    type: Book
+    enchantments:
+      -
+        type: Silk Touch
+  -
+    type: Shovel

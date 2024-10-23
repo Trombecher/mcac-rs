@@ -1,0 +1,120 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/root",
+    "title": "Anvil",
+    "definitions": {
+        "root": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "enum": [
+                                    "Helmet",
+                                    "Chestplate",
+                                    "Leggings",
+                                    "Boots",
+                                    "Elytra",
+                                    "Axe",
+                                    "Pickaxe",
+                                    "Shovel",
+                                    "Hoe",
+                                    "Sword",
+                                    "Bow",
+                                    "Crossbow",
+                                    "Trident",
+                                    "Shield",
+                                    "Shears",
+                                    "FishingRod",
+                                    "FlintAndSteel",
+                                    "CarrotOnAStick",
+                                    "WarpedFungusOnAStick",
+                                    "Compass",
+                                    "Book",
+                                    "CarvedPumpkin",
+                                    "Head",
+                                    "RecoveryCompass"
+                                ]
+                            },
+                            "enchantments": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "enum": [
+                                                "Protection",
+                                                "Fire Protection",
+                                                "Blast Protection",
+                                                "Projectile Protection",
+                                                "Thorns",
+                                                "Feather Falling",
+                                                "Respiration",
+                                                "Depth Strider",
+                                                "Aqua Affinity",
+                                                "Sharpness",
+                                                "Smite",
+                                                "Bane Of Arthropods",
+                                                "Knockback",
+                                                "Fire Aspect",
+                                                "Looting",
+                                                "Efficiency",
+                                                "Silk Touch",
+                                                "Unbreaking",
+                                                "Fortune",
+                                                "Power",
+                                                "Punch",
+                                                "Flame",
+                                                "Infinity",
+                                                "Luck Of The Sea",
+                                                "Frost Walker",
+                                                "Lure",
+                                                "Mending",
+                                                "Curse Of Binding",
+                                                "Curse Of Vanishing",
+                                                "Impaling",
+                                                "Riptide",
+                                                "Loyalty",
+                                                "Channeling",
+                                                "Multishot",
+                                                "Piercing",
+                                                "Quick Charge",
+                                                "Soul Speed",
+                                                "Swift Sneak",
+                                                "Sweeping Edge",
+                                            ]
+                                        },
+                                        "level": {
+                                            "type": "integer",
+                                            "minimum": 1
+                                        }
+                                    },
+                                    "required": [
+                                        "type"
+                                    ],
+                                    "title": "Enchantment"
+                                }
+                            }
+                        },
+                        "required": [
+                            "type"
+                        ],
+                        "title": "Item"
+                    }
+                }
+            },
+            "required": [
+                "items"
+            ],
+            "title": "Welcome10"
+        }
+    }
+}
