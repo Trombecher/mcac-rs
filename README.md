@@ -25,3 +25,11 @@ or in release mode:
 ```shell
 cargo build --release
 ```
+
+## Things You Can Change
+
+In js/gen.js there is a variable called `MAX_ITEMS`, which dictates the maximum number of items this project can handle (there are a few bugs, where this limit is not checked). If you change that and regenerate the dist.rs file, then the value changes for all of Rust.
+
+## _Why Are You Using JavaScript To Generate Rust Code?_
+
+First of all, I am generating a tailored version of the power set to work with my algorithm. It is a lookup table that specifies all possibilities to partition a list of items into two parts (disregarding mirror images). To me that is not possible with standard Rust macro_rules!, and would need a proc macro at minimum. But I am too lazy to write a proc macro, so I do it with JavaScript.

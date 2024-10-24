@@ -5,6 +5,7 @@ use crate::bits::Enchantments;
 use crate::dist::DIST;
 use crate::enchantments::Enchantment;
 use crate::items::ItemKind;
+use crate::dist::MAX_ITEMS;
 
 #[derive(Debug)]
 pub enum CombinationError {
@@ -104,12 +105,12 @@ impl Item {
 }
 
 #[derive(Clone, Debug)]
-pub struct Branch<const MAX_ITEMS: usize> {
+pub struct Branch {
     pub steps: ArrayVec<Step, MAX_ITEMS>,
     pub total_cost: u16,
 }
 
-impl<const MAX_ITEMS: usize> Branch<MAX_ITEMS> {
+impl Branch {
     pub fn of_two(first: Item, second: Item) -> Result<Self, CombinationError> {
         let first_with_second = Item::combine(first, second);
         let second_with_first = Item::combine(second, first);
@@ -139,7 +140,7 @@ impl<const MAX_ITEMS: usize> Branch<MAX_ITEMS> {
     }
 }
 
-pub fn branch_iterator<'a, const MAX_ITEMS: usize>(items: &'a [Item]) -> impl Coroutine<Yield = Branch<MAX_ITEMS>, Return = Result<(), CombinationError>> + 'a + Unpin {
+pub fn branch_iterator<'a>(items: &'a [Item]) -> impl Coroutine<Yield = Branch, Return = Result<(), CombinationError>> + 'a + Unpin {
     Box::pin(#[coroutine] static || {
         if items.len() == 1 {
             yield Branch {
@@ -161,7 +162,7 @@ pub fn branch_iterator<'a, const MAX_ITEMS: usize>(items: &'a [Item]) -> impl Co
             }
             
             let left_has_one_item = left.len() == 1;
-            let mut left_branches_iter = branch_iterator::<MAX_ITEMS>(left_items.as_slice());
+            let mut left_branches_iter = branch_iterator(left_items.as_slice());
             
             let mut right_items = ArrayVec::<_, MAX_ITEMS>::new_const();
             for index in right.iter().copied() {
@@ -171,7 +172,7 @@ pub fn branch_iterator<'a, const MAX_ITEMS: usize>(items: &'a [Item]) -> impl Co
             loop {
                 match Pin::new(&mut left_branches_iter).resume(()) {
                     CoroutineState::Yielded(left_branch) => {
-                        let mut right_branches_iter = branch_iterator::<MAX_ITEMS>(right_items.as_slice());
+                        let mut right_branches_iter = branch_iterator(right_items.as_slice());
                         
                         loop {
                             match Pin::new(&mut right_branches_iter).resume(()) {
@@ -184,7 +185,7 @@ pub fn branch_iterator<'a, const MAX_ITEMS: usize>(items: &'a [Item]) -> impl Co
                                     
                                     let second_item = right_branch.steps.last().unwrap().result;
                                     
-                                    let mut new_branch = Branch::<MAX_ITEMS>::of_two(first_item, second_item)?;
+                                    let mut new_branch = Branch::of_two(first_item, second_item)?;
                                     
                                     let last_step = new_branch.steps.pop().unwrap();
                                     new_branch.steps.extend(left_branch.steps.iter().cloned());
