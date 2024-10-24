@@ -57,13 +57,13 @@ function generatePowerSet(s) {
     return powerSet;
 }
 
-const N = 10;
+const MAX_ITEMS = 10;
 
-console.log(generatePowerSet((new Array(N)).fill(0).map((_, i) => i)).reduce((acc, set) => acc + `pub static C${set.join("")}:[u8;${set.length}]=[${set.join(",")}];`, ""));
+console.log(generatePowerSet((new Array(MAX_ITEMS)).fill(0).map((_, i) => i)).reduce((acc, set) => acc + `pub static C${set.join("")}:[u8;${set.length}]=[${set.join(",")}];`, ""));
 
-let s = `pub static DIST:[&[(&[u8],&[u8])];${N - 2}]=[`;
+let s = `pub static DIST:[&[(&[u8],&[u8])];${MAX_ITEMS - 2}]=[`;
 
-for(let n = 3; n <= N; n++) {
+for(let n = 3; n <= MAX_ITEMS; n++) {
     const arr = new Array(n);
     for(let i = 0; i < n; i++) arr[i] = i;
 
@@ -84,5 +84,6 @@ for(let n = 3; n <= N; n++) {
     s += "],";
 }
 
-s += "];";
+s += `];`;
 console.log(s);
+console.log(`pub const MAX_ITEMS:usize=${MAX_ITEMS};`);
